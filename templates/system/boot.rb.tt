@@ -1,0 +1,4 @@
+require_relative '<%= @base_name %>/container'
+require_relative '<%= @base_name %>/import'
+
+<%= @module_name %>::Container.finalize!

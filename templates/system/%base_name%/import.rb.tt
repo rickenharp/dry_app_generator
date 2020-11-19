@@ -1,0 +1,5 @@
+require_relative 'container'
+
+module <%= @module_name %>
+  <%= @module_name %>::Import = Container.injector
+end

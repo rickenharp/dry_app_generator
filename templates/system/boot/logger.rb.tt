@@ -1,4 +1,4 @@
-Container.boot(:logger) do |container|
+<%= @module_name %>::Container.boot(:logger) do |container|
   init do
     require 'logger'
   end

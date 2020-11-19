@@ -2,6 +2,7 @@ require 'thor'
 require 'pathname'
 require 'git'
 require 'bundler'
+require "dry/inflector"
 
 module DryAppGenerator
   class Command < Thor
@@ -14,7 +15,10 @@ module DryAppGenerator
     desc 'new NAME', 'create a new app named NAME'
     
     def new(name)
+      inflector = Dry::Inflector.new
       @name = name
+      @base_name = File.basename(name)
+      @module_name = inflector.camelize(@base_name)
       path = File.expand_path(name)
       say "Creating application at #{path}"
       directory('templates', path, recursive: true)
@@ -41,6 +45,10 @@ module DryAppGenerator
     no_commands do
       def name
         @name
+      end
+
+      def base_name
+        @base_name
       end
     end
   end

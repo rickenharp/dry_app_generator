@@ -3,6 +3,7 @@ PATH
   specs:
     dry_app_generator (0.1.0)
       bundler (~> 2.0)
+      dry-inflector (~> 0.1)
       git (~> 1.7)
       pry (~> 0.13)
       thor (~> 1.0)
@@ -12,6 +13,7 @@ GEM
   specs:
     coderay (1.1.3)
     diff-lcs (1.4.4)
+    dry-inflector (0.2.0)
     git (1.7.0)
       rchardet (~> 1.8)
     method_source (1.0.0)
