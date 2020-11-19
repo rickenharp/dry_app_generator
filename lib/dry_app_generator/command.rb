@@ -1,6 +1,7 @@
 require 'thor'
 require 'pathname'
 require 'git'
+require 'bundler'
 
 module DryAppGenerator
   class Command < Thor
