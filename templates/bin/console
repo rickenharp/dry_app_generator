@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require 'bundler/setup'
+require 'dotenv/load'
+require_relative '../system/container'
+Container.finalize!
+
+require 'pry'
+Pry.start
