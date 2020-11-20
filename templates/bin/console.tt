@@ -2,8 +2,7 @@
 
 require 'bundler/setup'
 require 'dotenv/load'
-require_relative '../system/container'
-<%= @module_name %>::Container.finalize!
+require_relative '../system/boot'
 
 require 'pry'
 Pry.start
