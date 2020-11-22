@@ -25,6 +25,8 @@ RSpec.describe DryAppGenerator::Command do
         puts tmpdir
         app_dir = tmpdir + '/foobar'
         command = described_class.new
+        ENV['GIT_AUTHOR_NAME'] = 'My Name'
+        ENV['GIT_AUTHOR_EMAIL'] = 'me@example.com'
         expect { command.new(app_dir) }.to output.to_stdout
         
         Bundler.with_original_env do
