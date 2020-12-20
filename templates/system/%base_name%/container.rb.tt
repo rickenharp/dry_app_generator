@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'dry/system/container'
 
 module <%= @module_name %>
@@ -8,10 +10,9 @@ module <%= @module_name %>
       config.auto_register = ['lib']
     end
     load_paths!('lib', 'system')
-  
+
     def self.env
       config.env
     end
   end
 end
-

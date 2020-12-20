@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module <%= @module_name %>
   class App
     include Import['logger']
-  
+
     def call
       logger.info('starting')
       at_exit do

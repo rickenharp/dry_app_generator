@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 <%= @module_name %>::Container.boot(:logger) do |container|
   init do
     require 'logger'
   end
 
   start do
-    STDOUT.sync = true
-    logger = Logger.new(STDOUT)
+    $stdout.sync = true
+    logger = Logger.new($stdout)
     container.register(:logger, logger)
   end
 end
