@@ -1,18 +1,31 @@
 # frozen_string_literal: true
 
 require 'dry/system/container'
+require 'dry/system/loader/autoloading'
+require 'zeitwerk'
+
 
 module <%= @module_name %>
   class Container < Dry::System::Container
     use :env, inferrer: -> { ENV.fetch('APPLICATION_ENV', 'development').to_sym }
     configure do |config|
-      config.root = Pathname(File.dirname(__FILE__)).join('../..')
-      config.auto_register = ['lib']
+      config.root = __dir__ + '/../..'
+
+      config.component_dirs.loader = Dry::System::Loader::Autoloading
+      config.component_dirs.add_to_load_path = false
+
+      config.component_dirs.add "lib" do |dir|
+        # ...
+      end
     end
-    load_paths!('lib', 'system')
+
 
     def self.env
       config.env
     end
   end
 end
+
+loader = Zeitwerk::Loader.new
+loader.push_dir <%= @module_name %>::Container.config.root.join("lib").realpath
+loader.setup

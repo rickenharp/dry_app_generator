@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency 'dry-inflector', '~> 0.1'
-  spec.add_runtime_dependency 'git', '~> 1.7'
+  spec.add_runtime_dependency 'git', '~> 1.11'
   spec.add_runtime_dependency 'pry', '~> 0.13'
   spec.add_runtime_dependency 'thor', '~> 1.0'
   spec.add_runtime_dependency 'bundler', '~> 2.0'
